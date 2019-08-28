@@ -1,5 +1,5 @@
 <manifest>
-<remote name="github" fetch="https://github.com/Juniper"/>
+<remote name="github" fetch="https://github.com/mrasskazov"/>
 <project name="contrail-vnc" remote="github" path="subdir/contrail-vnc"/>
 <project name="contrail-zuul-jobs" remote="github"/>
 </manifest>

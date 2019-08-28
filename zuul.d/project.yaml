@@ -1,5 +1,5 @@
 - project:
-    name: Juniper/contrail-zuul-jobs
+    name: mrasskazov/contrail-zuul-jobs
     check:
       jobs:
         - ci-test-core-centos-7

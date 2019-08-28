@@ -11,9 +11,9 @@
       roles to prevent total CI meltdown.
     parent: ci-test-base
     required-projects:
-      - Juniper/contrail-project-config
+      - mrasskazov/contrail-project-config
     roles:
-      - zuul: Juniper/zuul-jobs
+      - zuul: mrasskazov/zuul-jobs
     run: tests/core.yaml
     files:
       - ^roles/acquire-ip-address/.*
@@ -33,9 +33,9 @@
     name: ci-test-contrail-core-base
     parent: ci-test-base
     roles:
-      - zuul: Juniper/zuul-jobs
+      - zuul: mrasskazov/zuul-jobs
     required-projects:
-      - Juniper/contrail-vnc
+      - tungsten/contrail-vnc
     run: tests/contrail-core.yaml
     files:
       - ^roles/zuul-include-vars/.*
@@ -58,7 +58,7 @@
     parent: ci-test-base
     # Required to test repo-sandbox-prepare role
     required-projects:
-      - Juniper/contrail-vnc
+      - tungsten/contrail-vnc
     run: tests/packaging.yaml
     files:
       - ^roles/fetch-packages/.*
@@ -82,7 +82,7 @@
     parent: ci-test-base
     # Required to test repo-sandbox-prepare role
     required-projects:
-      - Juniper/contrail-vnc
+      - tungsten/contrail-vnc
     run: tests/containers.yaml
     files:
       - ^roles/publish-container-images/.*
@@ -129,17 +129,17 @@
       ansible playbooks and roles.
     pre-run: playbooks/zuul-jobs-linters/pre.yaml
     required-projects:
-      - Juniper/contrail-project-config
-      - Juniper/zuul-jobs
+      - mrasskazov/contrail-project-config
+      - mrasskazov/zuul-jobs
       - name: Juniper/zuul
         override-checkout: contrail/feature/zuulv3
-      - Juniper/contrail-zuul-jobs
-      - Juniper/contrail-helm-deployer
+      - mrasskazov/contrail-zuul-jobs
+      - tungsten/contrail-helm-deployer
     vars:
       tox_envlist: linters
       tox_environment:
-        ANSIBLE_ROLES_PATH: ~/src/github.com/Juniper/zuul-jobs/roles:~/src/review.opencontrail.org/Juniper/contrail-zuul-jobs/roles:~/src/review.opencontrail.org/Juniper/contrail-project-config/roles:~/src/review.opencontrail.org/Juniper/contrail-helm-deployer/roles
-        ANSIBLE_LIBRARY: ~/src/github.com/Juniper/zuul/zuul/ansible:~/src/review.opencontrail.org/Juniper/contrail-zuul-jobs/roles/contrail-common-libs2:~/src/review.opencontrail.org/Juniper/contrail-project-config/roles/contrail-common-libs
+        ANSIBLE_ROLES_PATH: ~/src/github.com/mrasskazov/zuul-jobs/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-zuul-jobs/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-project-config/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-helm-deployer/roles
+        ANSIBLE_LIBRARY: ~/src/github.com/mrasskazov/zuul/zuul/ansible:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-zuul-jobs/roles/contrail-common-libs2:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-project-config/roles/contrail-common-libs
     nodeset: ubuntu-xenial-c
 
 - job:

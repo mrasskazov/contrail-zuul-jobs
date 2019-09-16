@@ -138,8 +138,10 @@
     vars:
       tox_envlist: linters
       tox_environment:
-        ANSIBLE_ROLES_PATH: ~/src/github.com/mrasskazov/zuul-jobs/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-zuul-jobs/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-project-config/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-helm-deployer/roles
-        ANSIBLE_LIBRARY: ~/src/github.com/mrasskazov/zuul/zuul/ansible:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-zuul-jobs/roles/contrail-common-libs2:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-project-config/roles/contrail-common-libs
+        #ANSIBLE_ROLES_PATH: ~/src/github.com/mrasskazov/zuul-jobs/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-zuul-jobs/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-project-config/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-helm-deployer/roles
+        #ANSIBLE_LIBRARY: ~/src/github.com/mrasskazov/zuul/zuul/ansible:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-zuul-jobs/roles/contrail-common-libs2:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-project-config/roles/contrail-common-libs
+        ANSIBLE_ROLES_PATH: ~/src/github.com/mrasskazov/zuul-jobs/roles:~/src/github.com/mrasskazov/contrail-zuul-jobs/roles:~/src/github.com/mrasskazov/contrail-project-config/roles:~/src/gerrit.mcp.mirantis.net/tungsten/contrail-helm-deployer/roles
+        ANSIBLE_LIBRARY: ~/src/github.com/mrasskazov/zuul/zuul/ansible:~/src/github.com/mrasskazov/contrail-zuul-jobs/roles/contrail-common-libs2:~/src/github.com/mrasskazov/contrail-project-config/roles/contrail-common-libs
     nodeset: ubuntu-xenial-c
 
 - job:
@@ -156,7 +158,7 @@
       This job is running roles tests for production environment for infra-doc.
     parent: build-infra-doc
     required-projects:
-      - Juniper/contrail-infra-doc
+      - tungsten/contrail-infra-doc
     post-run: tests/publish-infra-doc.yaml
     files:
       - ^roles/fetch-docs/.*
@@ -181,7 +183,7 @@
       This job is running syntax and lint check for puppet files for contrail-infra
     run: playbooks/puppet-lint/run.yaml
     required-projects:
-      - Juniper/contrail-infra
+      - tungsten/contrail-infra
     nodeset: builder-ubuntu-xenial
 
 - job:
@@ -192,7 +194,7 @@
     parent: build-third-party-rpms-base
     post-run: tests/publish-rpm-nexus.yaml
     required-projects:
-      - Juniper/contrail-third-party-packages
+      - tungsten/contrail-third-party-packages
     files:
       - ^tests/.*
       - ^roles/publish-rpm-nexus/.*

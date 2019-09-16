@@ -113,7 +113,7 @@
       using contrail-ansible-deployer, switches Configuration Node components to contrail-go
       and runs sanity test suite on setup CI.
     required-projects:
-      - tungsten/contrail
+      - Juniper/contrail
       - tungsten/contrail-ansible-deployer
       - tungsten/contrail-test
     vars:
@@ -130,7 +130,7 @@
       Deploy Contrail containers and a Openstack cluster using contrail-ansible-deployer
       and switch Configuration Node components to contrail-go on setup CI.
     required-projects:
-      - tungsten/contrail
+      - Juniper/contrail
       - tungsten/contrail-ansible-deployer
       - name: tungsten/contrail-kolla-ansible
         override-checkout: contrail/ocata

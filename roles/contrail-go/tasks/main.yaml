@@ -33,7 +33,7 @@
     state: directory
 
 - name: Copy Contrail repository inside GOPATH
-  command: 'cp -r {{ ansible_env.HOME }}/src/gerrit.mcp.mirantis.net/tungsten/contrail {{ ansible_env.HOME }}/go/src/github.com/mrasskazov/'
+  command: 'cp -r {{ ansible_env.HOME }}/src/github.com/Juniper/contrail {{ ansible_env.HOME }}/go/src/github.com/mrasskazov/'
 
 - name: Run deploy-for_k8s script
   command: '{{ ansible_env.HOME }}/go/src/github.com/mrasskazov/contrail/tools/deploy-for_k8s.sh'

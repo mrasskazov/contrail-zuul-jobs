@@ -11,6 +11,12 @@
         label: centos-7-4-builder-c
 
 - nodeset:
+    name: ubuntu-bionic
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-small
+
+- nodeset:
     name: ubuntu-xenial
     nodes:
       - name: ubuntu-xenial

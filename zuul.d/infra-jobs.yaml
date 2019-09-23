@@ -30,6 +30,11 @@
     nodeset: ubuntu-xenial
 
 - job:
+    name: ci-test-core-ubuntu-bionic
+    parent: ci-test-core-base
+    nodeset: ubuntu-bionic
+
+- job:
     name: ci-test-contrail-core-base
     parent: ci-test-base
     roles:
